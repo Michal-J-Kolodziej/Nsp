@@ -6,7 +6,7 @@ class Section {
     constructor(section, index) {
         this.section = section;
         this.index = index;
-        this.dataIndex = section.dataset.index;
+        this.dataIndex;
     }
 
     toggleVisibility() {
@@ -29,8 +29,26 @@ let dots = [...document.querySelectorAll('.nsp-dot')]; //collecting all dots(web
 if (sections[0] === undefined || sections === undefined);
 else {
 
+    let zIndex = 50;
+
+    for (let i = 0; i < sections.length; i++) {
+        sections[i].style.zIndex = zIndex;
+        sections[i].dataIndex = i;
+        sections[i].dataset.nspIndex = i;
+        zIndex--;
+    }
+
+
     if (dots[0] === undefined || dots === undefined) areThereDots = false;
-    else areThereDots = true;
+    else {
+        areThereDots = true;
+        dots[0].classList.add('nsp-active');
+        dots.forEach((dot, index) => {
+            dot.dataset.nspIndex = index;
+        })
+    }
+
+
 
     //transforming nodes array to array of objects of class Section
     sections = sections.map((section, index) => {
@@ -50,12 +68,12 @@ else {
         //Finding first not-hidden section
         dataIndex = sections.find(section => {
             if (!section.section.classList.contains('nsp-hidden')) return true;
-        }).section.dataset.index;
+        }).section.dataset.nspIndex;
 
         if (dotToActive != undefined) dataIndex = dotToActive;
 
-        const currentDot = dots.filter(dot => {
-            if (dot.dataset.index == dataIndex) return true;
+        const currentDot = dots.filter((dot) => {
+            if (dot.dataset.nspIndex == dataIndex) return true;
         });
         currentDot[0].classList.add('nsp-active');
 
@@ -154,7 +172,7 @@ else {
     const handleDotClick = (e) => {
         if (canBeDone === true) {
             clicked = true;
-            targetDot = e.target.dataset.index;
+            targetDot = e.target.dataset.nspIndex;
             toggleDots(targetDot);
             canBeDone = false;
 
