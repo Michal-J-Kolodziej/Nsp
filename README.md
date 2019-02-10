@@ -65,3 +65,6 @@ At the start of nsp-script.js there is a Conf object in which you can change som
 #### 2. Z-index
 Sections's z-index value starts at 50 so first section's z-index value is 50, next section's value is 49 an so on. Container's for dots z-index value is 51.
 
+## Author
+- Michał Kołodziej
+
