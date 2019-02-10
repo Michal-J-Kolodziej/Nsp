@@ -235,6 +235,6 @@ else {
 
 
 // TODO:
-// 
+// Nowy sposób przewijania - zamiast mienia wszystkich sekcji w jednym miejscu i 'przesuwania' ich jedna po drugiej, cała strona    będzie się przewijać
 // 
 // 
