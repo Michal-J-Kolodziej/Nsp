@@ -1,0 +1,17 @@
+
+
+
+
+div.nsp-container-slide:nth-of-type(even) {
+    background-color: #f00;
+}
+div.nsp-container-slide:nth-of-type(odd) {
+    background-color: #0F0;
+}
+
+div.nsp-container-slide p {
+    font-size: 200px;
+    text-align: center;
+    line-height: 100vh;
+    color: white;
+}

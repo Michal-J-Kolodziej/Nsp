@@ -16,7 +16,19 @@ class Section {
     }
 
     toggleVisibility() {
+        // Hide this section
         this.section.classList.toggle('nsp-hidden');
+
+        Section.slideInto();
+    }
+
+    static slideInto() {
+        //  If you are using nsp-container-slide this code manages the slide
+        if (sections[currentSection].section.classList.contains('nsp-container-slide')) {
+            sectionsNode[currentSection].scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     }
 }
 
@@ -27,9 +39,13 @@ let currentSection = 0;
 let lastIndex = 0;
 let targetDot = 0;
 
+// After refreshing page it automatically scrolls to top
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
 
-
-let sections = [...document.querySelectorAll('.nsp-container')]; //collecting all sections from DOM
+const sectionsNode = document.querySelectorAll('.nsp-container-stacked, .nsp-container-slide'); //collecting all sections from DOM
+let sections = [...sectionsNode]; //changing array of node section objects to an array of js objects
 let dots = [...document.querySelectorAll('.nsp-dot')]; //collecting all dots(website-navigation) from DOM
 
 if (sections[0] === undefined || sections === undefined);
@@ -132,8 +148,6 @@ else {
             if (!areThereDots) return;
             toggleDots();
         }
-
-
     }
 
     //A part of code that handles scrolling the page by using 'finger slide' (mobile)
@@ -188,7 +202,6 @@ else {
     if (conf.canScrollWithKey) {
 
         const handleKeyDownEvent = (e) => {
-            console.log(canBeDone, e);
             let x;
             if (canBeDone) {
                 if (e.keyCode === 38) {
@@ -235,6 +248,8 @@ else {
 
 
 // TODO:
-// Nowy sposób przewijania - zamiast mienia wszystkich sekcji w jednym miejscu i 'przesuwania' ich jedna po drugiej, cała strona    będzie się przewijać
+// readme update
+// wysuwające sie tytuły po najechaniu na doty
 // 
-// 
+
+

@@ -1,5 +1,17 @@
-/* Containers style */
-.nsp-container { 
+/* Basic style reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+/* ------------------------------------- */
+
+/* Stacked containers style */
+.nsp-container-stacked { 
     position: absolute;
     top: 0;
     left: 0;
@@ -7,14 +19,26 @@
     height: 100vh;
     transition: 1s;
 }
-.nsp-container.nsp-hidden {
+
+.nsp-container-stacked.nsp-hidden {
     top: -100vh;
 }
+
+/* ------------------------------------- */
+
+/* Slide containers style */
+.nsp-container-slide {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* ------------------------------------- */
 
 /* Feel free to override this style if u want to customize your nav-dots */
 /* Dots style */
 .nsp-dots-right {
-    position: absolute;
+    position: fixed;
     top:50%;
     right:0;
     transform: translateY(-50%);
@@ -22,7 +46,7 @@
 }
 
 .nsp-dots-left {
-    position: absolute;
+    position: fixed;
     top:50%;
     left:0;
     transform: translateY(-50%);
