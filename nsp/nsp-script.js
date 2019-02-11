@@ -39,14 +39,17 @@ let currentSection = 0;
 let lastIndex = 0;
 let targetDot = 0;
 
+
+
+const sectionsNode = document.querySelectorAll('.nsp-container-stacked, .nsp-container-slide'); //collecting all sections from DOM
+let sections = [...sectionsNode]; //changing array of node section objects to an array of js objects
+const dotsNode = document.querySelectorAll('.nsp-dot'); //collecting all dots(website-navigation) from DOM
+let dots = [...dotsNode]; //changing array of node dot objects to an array of js objects
+
 // After refreshing page it automatically scrolls to top
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
-
-const sectionsNode = document.querySelectorAll('.nsp-container-stacked, .nsp-container-slide'); //collecting all sections from DOM
-let sections = [...sectionsNode]; //changing array of node section objects to an array of js objects
-let dots = [...document.querySelectorAll('.nsp-dot')]; //collecting all dots(website-navigation) from DOM
 
 if (sections[0] === undefined || sections === undefined);
 else {
@@ -150,6 +153,58 @@ else {
         }
     }
 
+    // This code handles dots's titles
+    dotsNode.forEach(dot => {
+        if (dot.dataset.nspTitle !== undefined && window.screen.width >= 1200) {
+            const titleElem = document.createElement('div');
+            titleElem.classList.add('nsp-dot-title');
+            titleElem.innerText = `${dot.dataset.nspTitle}`;
+            const dotPositon = dot.getBoundingClientRect();
+            const dotsContainerPositon = dot.parentElement.getBoundingClientRect();
+
+            titleElem.style.top = `${dotPositon.y - dotsContainerPositon.y}px`;
+            if (dot.parentElement.classList.contains('nsp-dots-left')) {
+                titleElem.style.left = `${dotPositon.x - dotsContainerPositon.x}px`;
+            } else if (dot.parentElement.classList.contains('nsp-dots-right')) {
+                titleElem.style.left = `${dotPositon.x - dotsContainerPositon.x - 20}px`;
+            }
+
+
+            let titleElements;
+
+            dot.addEventListener('mouseover', () => {
+                if (!dot.parentElement.contains(titleElem)) {
+                    dot.parentElement.appendChild(titleElem);
+                }
+                titleElements = [...dot.parentElement.children].filter(child => {
+                    if (child.classList.contains('nsp-dot-title')) return true;
+                });
+
+                titleElements.forEach(elem => {
+                    if (elem.innerText === dot.dataset.nspTitle) {
+                        elem.classList.add('active');
+                        if (elem.parentElement.classList.contains('nsp-dots-right')) {
+                            elem.style.left = `${dotPositon.x - dotsContainerPositon.x - (elem.clientWidth + 15)}px`;
+                        } else if (elem.parentElement.classList.contains('nsp-dots-left')) {
+                            elem.style.left = `${dotPositon.x - dotsContainerPositon.x + (dot.clientWidth + 15)}px`;
+                        }
+                    }
+                });
+            });
+
+            dot.addEventListener('mouseout', () => {
+                titleElements.forEach(elem => {
+                    if (elem.innerText === dot.dataset.nspTitle) {
+                        elem.classList.remove('active');
+                        elem.style.left = `${dotPositon.x - dotsContainerPositon.x - 20}px`;
+                    }
+                });
+            });
+
+        }
+    });
+
+
     //A part of code that handles scrolling the page by using 'finger slide' (mobile)
     if (conf.canScrollWithFingerSlide) {
         let touchClientYStart = 0;
@@ -248,8 +303,8 @@ else {
 
 
 // TODO:
-// readme update
-// wysuwające sie tytuły po najechaniu na doty
+// readme update (nsp-slide, nsp-dot-title)
+// popracować nad stylem kropek dla różnych urządzeń
 // 
 
 

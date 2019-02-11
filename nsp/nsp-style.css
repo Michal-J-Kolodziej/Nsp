@@ -62,6 +62,7 @@ body{
     border-radius: 50%;
     cursor: pointer;
     overflow: hidden;
+    z-index: 1;
 }
 
 .nsp-dot.nsp-active {
@@ -89,4 +90,21 @@ body{
 .nsp-dot.nsp-active::after{
     width: 0px;
     height: 0px;
+}
+
+/* Dot title style */
+.nsp-dot-title {
+    position: fixed;
+    width: max-content;
+    opacity: 0;
+
+    /* You can change these properties */
+    transition: 0.5s;
+    color: white;
+    font-family: sans-serif;
+    font-size: 100%;
+}
+
+.nsp-dot-title.active {
+    opacity: 1;
 }
