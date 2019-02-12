@@ -6,6 +6,8 @@ const conf = {
     canScrollWithMouseWheel: true,
     canScrollWithDotClick: true,
     canScrollWithFingerSlide: true, //mobile
+
+    animationEnabled: true, //If 'true' current section will always have .nsp-animation class, that you can use to animate things on this particular section
 }
 
 class Section {
@@ -25,9 +27,9 @@ class Section {
     static slideInto() {
         //  If you are using nsp-container-slide this code manages the slide
         if (sections[currentSection].section.classList.contains('nsp-container-slide')) {
-            sectionsNode[currentSection].scrollIntoView({
-                behavior: 'smooth'
-            });
+            console.log(sectionsNode[currentSection].scrollIntoView({
+                behavior: 'smooth',
+            }));
         }
     }
 }
@@ -150,6 +152,7 @@ else {
             section.toggleVisibility();
             if (!areThereDots) return;
             toggleDots();
+            addAnimationClassToCurrentSection(); //toggling section to animate
         }
     }
 
@@ -299,11 +302,28 @@ else {
             });
         }
     }
+    // ---------
+    // Animation part
+    // ---------
+    const addAnimationClassToCurrentSection = () => {
+        if (conf.animationEnabled) {
+            sectionsNode.forEach(section => {
+                section.classList.remove('nsp-animation');
+            });
+            sectionsNode[currentSection].classList.add('nsp-animation');
+        }
+    }
+    addAnimationClassToCurrentSection();
 }
 
 
+
+
+
 // TODO:
-// Trigerowanie animacji
+// Stworzyć animacje na podstawie keyframes i nsp-animation
+// Update readme (animacje)
+// Trigerowanie animacji - dodane ALE do nsp-slide przydałoby sie jakoś obliczyć czas potrzebny na wykonanie 'slide'
 // chowanie się kropek (np. pc - pojawiają się gdy user najedzie myszką na prawą część strony i przy każdej interakcji z kropakami (scroll itd) mobile - pojawiają się gdy user dotknie ekranu lub scrolluje [w sumie to też dotkniecie])
 
 

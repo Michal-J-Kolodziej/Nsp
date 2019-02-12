@@ -1,7 +1,3 @@
-
-
-
-
 div.nsp-container-slide:nth-of-type(even) {
     background-color: #f00;
 }
@@ -13,5 +9,16 @@ div.nsp-container-slide p {
     font-size: 200px;
     text-align: center;
     line-height: 100vh;
+    color: white;
+}
+
+/* animation example using transition */
+div.nsp-container-slide p.header {
+    transition: 1s;
+    transition-delay: 0.5s; 
+    color: black;
+}
+
+div.nsp-container-slide.nsp-animation p.header {
     color: white;
 }
