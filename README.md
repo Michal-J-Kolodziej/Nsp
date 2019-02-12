@@ -36,7 +36,7 @@ To achieve this effect you have to do a few simple things:
     <script src="nsp/nsp-script.js"></script>
 </body>
 ```
-##### At this point you are ready to go! Your page should be working flawless. But you can add navigation that I call 'dots'. You can learn more about them [below](https://github.com/MichalEgoKolodziej/Nsp#3-dots-navigation).
+##### At this point you are ready to go! Your page should be working flawless. But you can add navigation that I call 'dots'. You can learn more about them [below](#3-dots-navigation).
 
 ### 2. Slide sections
 All sections are just a usual sections with {display: block; width: 100vw; height: 100vh;} properties. But page isn't scrolling like it usually would do, instead after using mousewheel or triggering any other event set in Conf object in nsp-script.js file, page is 'sliding' from one section to another.
@@ -55,7 +55,7 @@ In order to achieve this effect you have to take similar steps to the previous m
     <script src="nsp/nsp-script.js"></script>
 </body>
 ```
-##### At this point you are ready to go! Your page should be working flawless. But you can add navigation that I call 'dots'. You can learn more about them [below](https://github.com/MichalEgoKolodziej/Nsp#3-dots-navigation).
+##### At this point you are ready to go! Your page should be working flawless. But you can add navigation that I call 'dots'. You can learn more about them [below](#3-dots-navigation).
   
 ### 3. Dots (navigation)
 
