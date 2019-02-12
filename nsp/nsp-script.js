@@ -303,7 +303,7 @@ else {
 
 
 // TODO:
-// readme update (nsp-slide, nsp-dot-title, nsp-stacked)
+// Trigerowanie animacji
 // chowanie się kropek (np. pc - pojawiają się gdy user najedzie myszką na prawą część strony i przy każdej interakcji z kropakami (scroll itd) mobile - pojawiają się gdy user dotknie ekranu lub scrolluje [w sumie to też dotkniecie])
 
 
