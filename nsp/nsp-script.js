@@ -7,7 +7,7 @@ const conf = {
     canScrollWithDotClick: true,
     canScrollWithFingerSlide: true, //mobile
 
-    animationEnabled: true, //If 'true' current section will always have .nsp-animation class, that you can use to animate things on this particular section
+    animationEnabled: true, //If 'true' current section will always have .nsp-animation class so you can use to animate things in this particular section
 }
 
 class Section {
@@ -27,9 +27,9 @@ class Section {
     static slideInto() {
         //  If you are using nsp-container-slide this code manages the slide
         if (sections[currentSection].section.classList.contains('nsp-container-slide')) {
-            console.log(sectionsNode[currentSection].scrollIntoView({
+            sectionsNode[currentSection].scrollIntoView({
                 behavior: 'smooth',
-            }));
+            });
         }
     }
 }
@@ -38,6 +38,7 @@ let clicked = false;
 let canBeDone = true;
 let areThereDots;
 let currentSection = 0;
+let lastSection = 0;
 let lastIndex = 0;
 let targetDot = 0;
 
@@ -124,6 +125,7 @@ else {
 
     // Function that manages changing sections
     const changeSection = (e) => {
+        lastSection = currentSection;
         let changed = false;
         if (e.deltaY > 0) {
             //scrolling down
@@ -302,6 +304,7 @@ else {
             });
         }
     }
+
     // ---------
     // Animation part
     // ---------
@@ -310,7 +313,35 @@ else {
             sectionsNode.forEach(section => {
                 section.classList.remove('nsp-animation');
             });
-            sectionsNode[currentSection].classList.add('nsp-animation');
+            const intervalIndex = setInterval(() => {
+                // Detecting section to animate when using nsp-slide
+                if (sections[0].section.classList.contains('nsp-container-slide')) {
+                    if (sections[currentSection].section.getBoundingClientRect().y === 0) {
+                        sections[currentSection].section.classList.add('nsp-animation');
+                        clearInterval(intervalIndex);
+                    }
+                }
+                // Detecting section to animate when using nsp-stacked
+                if (sections[0].section.classList.contains('nsp-container-stacked')) {
+                    if (currentSection === 0) {
+                        if (sections[currentSection].section.getBoundingClientRect().y === 0) {
+                            sections[currentSection].section.classList.add('nsp-animation');
+                            clearInterval(intervalIndex);
+                        }
+
+                    } else if (sections[currentSection - 1].section.getBoundingClientRect().y + sections[currentSection - 1].section.offsetHeight === 0) {
+                        if (lastSection > currentSection) {
+                            if (sections[currentSection].section.getBoundingClientRect().y === 0) {
+                                sections[currentSection].section.classList.add('nsp-animation');
+                                clearInterval(intervalIndex);
+                            }
+                        } else {
+                            sections[currentSection].section.classList.add('nsp-animation');
+                            clearInterval(intervalIndex);
+                        }
+                    }
+                }
+            }, 50)
         }
     }
     addAnimationClassToCurrentSection();
@@ -323,7 +354,6 @@ else {
 // TODO:
 // Stworzyć animacje na podstawie keyframes i nsp-animation
 // Update readme (animacje)
-// Trigerowanie animacji - dodane ALE do nsp-slide przydałoby sie jakoś obliczyć czas potrzebny na wykonanie 'slide'
 // chowanie się kropek (np. pc - pojawiają się gdy user najedzie myszką na prawą część strony i przy każdej interakcji z kropakami (scroll itd) mobile - pojawiają się gdy user dotknie ekranu lub scrolluje [w sumie to też dotkniecie])
 
 
