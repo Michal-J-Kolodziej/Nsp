@@ -24,19 +24,23 @@ All sections are stacked one on another. When u 'scroll' page down the top secti
 
 To achieve this effect u have to do a few simple things:
 
-- Create a structure of your page using any tag u want (for example 'section' or 'div') and to every one of them add 'nsp-container' class:
+- Create a structure of your page using any tag u want (for example 'section' or 'div') and to every one of them add 'nsp-container-stacked' class:
 
 ```
 <body>
-    <section class="nsp-container"></section>
-    <section class="nsp-container"></section>
-    <section class="nsp-container"></section>
-    <section class="nsp-container"></section>
+    <section class="nsp-container-stacked"></section>
+    <section class="nsp-container-stacked"></section>
+    <section class="nsp-container-stacked"></section>
+    <section class="nsp-container-stacked"></section>
 
     <script src="nsp/nsp-script.js"></script>
 </body>
 ```
-##### At this point you are ready to go! Your page should be working flawless. But you can add navigation that I call 'dots'.
+##### At this point you are ready to go! Your page should be working flawless. But you can add navigation that I call 'dots'. You can learn more about them [below](https://github.com/MichalEgoKolodziej/Nsp#dots-(navigation)).
+
+
+  
+### 3. Dots (navigation)
 
 - Above your 'section' tags add a 'div' tag with 'nsp-dots-left' or 'nsp-dots-right' class ('left' or 'right' means where the dots appear on your page). In this 'div' tag add children which should also be a 'div' tag but with 'nsp-dot' class. Their number must be the same as the number of your tags with 'nsp-container' class. Your code should look something like this: 
   
@@ -48,10 +52,10 @@ To achieve this effect u have to do a few simple things:
         <div class="nsp-dot"></div>
         <div class="nsp-dot"></div>
     </div>
-    <section class="nsp-container"></section>
-    <section class="nsp-container"></section>
-    <section class="nsp-container"></section>
-    <section class="nsp-container"></section>
+    <section class="nsp-container-stacked"></section>
+    <section class="nsp-container-stacked"></section>
+    <section class="nsp-container-stacked"></section>
+    <section class="nsp-container-stacked"></section>
 
     <script src="nsp/nsp-script.js"></script>
   </body>
