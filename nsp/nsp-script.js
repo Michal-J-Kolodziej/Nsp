@@ -303,8 +303,16 @@ else {
 
 
 // TODO:
-// readme update (nsp-slide, nsp-dot-title)
-// popracować nad stylem kropek dla różnych urządzeń
-// 
+// readme update (nsp-slide, nsp-dot-title, nsp-stacked)
+// chowanie się kropek (np. pc - pojawiają się gdy user najedzie myszką na prawą część strony i przy każdej interakcji z kropakami (scroll itd) mobile - pojawiają się gdy user dotknie ekranu lub scrolluje [w sumie to też dotkniecie])
 
 
+/*
+    Problems:
+    Edge:
+        1. Nie wyświetlają się tytuły
+        2. behavior: smooth nie działa
+    Firefox:
+        2. Animacja kropek w niektórych kółkach też jej odpierdala
+
+*/
