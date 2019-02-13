@@ -102,6 +102,13 @@ To add 'dots' to your page follow these steps:
   ```
 **Titles don't work on mobile devices!**
 
+### Hiding dots
+If you don't want your 'dots' to be visible all the time follow these simple steps:
+
+- Go to 'conf' object which is located at the start of nsp-script.js file.
+- Find 'hidingOutDots' property and change it's value to 'true'.
+- Right below 'hidingOutDots' property there is a 'dotsHideAfter' property. There you can specify after what time (in miliseconds) dots should hide.
+
 ## Important things to know
 
 #### 1. Configure
