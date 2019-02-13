@@ -102,6 +102,30 @@ To add 'dots' to your page follow these steps:
   ```
 **Titles don't work on mobile devices!**
 
+### Hiding dots
+If you don't want your 'dots' to be visible all the time follow these simple steps:
+
+- Go to 'conf' object which is located at the start of nsp-script.js file.
+- Find 'hidingOutDots' property and change it's value to 'true'.
+- Right below 'hidingOutDots' property there is a 'dotsHideAfter' property. There you can specify after what time (in miliseconds) dots should hide.
+
+### 4. Triggering animations
+With nsp you can easily trigger animations when section appears on the screen. Nsp adds 'nsp-animation' class to section that is currently displayed. Based on that knowledge you can build selectors in css and animate things using 'transtion' or 'keyframes'. Example:
+
+```css
+/* animation example using transition */
+div.nsp-container-slide p.header {
+    transition: 1s;
+    color: black;
+}
+
+div.nsp-container-slide.nsp-animation p.header {
+    color: white;
+}
+```
+
+**Note that 'nsp-animation' class is added ___after___ sections change animation ends.**
+
 ## Important things to know
 
 #### 1. Configure
