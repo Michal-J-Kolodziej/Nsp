@@ -5,7 +5,7 @@ Nsp is a small library that helps you build unusual webpages. Get rid of boring 
 ## How to use nsp
 
 ### 0. Download and add files to your project
-Download files from this repo, add the nsp catalog to your project and add nsp-style.css before </head> tag and also nsp-script.js before </body> tag. Your code should look something like this:
+Download files from this repo and add the nsp catalog to your project. Then add nsp-style.css at the end of the 'head' tag and also nsp-script.js at the end of the 'body' tag. Your code should look something like that:
 
 ```html
 <head>
@@ -20,7 +20,7 @@ Download files from this repo, add the nsp catalog to your project and add nsp-s
 ```
 
 ### 1. Stacked sections
-All sections are stacked one on another. When u 'scroll' page down the top section slides nad hides 'above' the page.
+All sections are stacked one on another. When u 'scroll' page down the top section slides and hides 'above' the page.
 
 To achieve this effect you have to do a few simple things:
 
@@ -62,7 +62,7 @@ In order to achieve this effect you have to take similar steps to the previous m
 
 To add 'dots' to your page follow these steps:
 
-- Above your 'section' tags add a 'div' tag with 'nsp-dots-left' or 'nsp-dots-right' class ('left' or 'right' means where the dots appear on your page). In this 'div' tag add children which should also be a 'div' tag but with 'nsp-dot' class. Their number must be the same as the number of your tags with 'nsp-container' class. Your code should look something like this: 
+- Above your 'section' tags add a 'div' tag with 'nsp-dots-left' or 'nsp-dots-right' class ('left' or 'right' means where the dots appear on your page). In this 'div' tag add children which should also be a 'div' tag but with 'nsp-dot' class. Their number must be the same as the number of your tags with 'nsp-container' class. Your code should look something like that: 
   
   ```html
   <body>
@@ -84,7 +84,7 @@ To add 'dots' to your page follow these steps:
 ### Titles
 In nsp there is an option to show section's title (it can be for example section's name like 'Home' or 'About') after user hover mouse over a dot.
 
-- To add a 'title' to a dot you have to add 'data-nsp-title' attribute to this particular dot. In this attribute's value you can write your title. Your code should look something like this: 
+- To add a 'title' to a dot you have to add 'data-nsp-title' attribute to this particular dot. In this attribute's value you can write your title. Your code should look something like that: 
 
   ```html
   <body>
