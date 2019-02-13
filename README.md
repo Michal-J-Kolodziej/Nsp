@@ -81,7 +81,9 @@ To add 'dots' to your page follow these steps:
   </body>
   ```
 
-### Adding titles
+### Titles
+In nsp there is an option to show section's title (it can be for example section's name like 'Home' or 'About') after user hover mouse over a dot.
+
 - To add a 'title' to a dot you have to add 'data-nsp-title' attribute to this particular dot. In this attribute's value you can write your title. Your code should look something like this: 
 
   ```html
