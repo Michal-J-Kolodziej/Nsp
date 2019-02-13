@@ -43,6 +43,8 @@ body{
     right:0;
     transform: translateY(-50%);
     z-index: 51;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
 }
 
 .nsp-dots-left {
@@ -51,6 +53,8 @@ body{
     left:0;
     transform: translateY(-50%);
     z-index: 51;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
 }
 
 .nsp-dot {
@@ -96,6 +100,16 @@ body{
 .nsp-dot.nsp-active::after{
     width: 0px;
     height: 0px;
+}
+
+.nsp-dots-right.nsp-hidden  {
+    opacity: 0;
+    right: -25%;
+    
+}
+.nsp-dots-left.nsp-hidden {
+    opacity: 0;
+    left: -25%;
 }
 
 /* Dot title style */

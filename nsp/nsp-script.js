@@ -1,5 +1,5 @@
 const conf = {
-    offsetTime: 1000, //A number of miliseconds that u have to wait to scroll page again
+    offsetTime: 1000, //A number of miliseconds that you have to wait to scroll page again
 
     //Change 'true' to 'false' if u don't want one of these option of scrolling to be active
     canScrollWithKey: true,
@@ -8,6 +8,9 @@ const conf = {
     canScrollWithFingerSlide: true, //mobile
 
     animationEnabled: true, //If 'true' current section will always have .nsp-animation class so you can use to animate things in this particular section
+
+    hidingOutDots: true, //If 'true' dots will hide after a number of miliseconds given below
+    dotsHideAfter: 4000, //A number of miliseconds that takes dots to hide out
 }
 
 class Section {
@@ -305,10 +308,45 @@ else {
         }
     }
 
+    //--------
+    //Hiding dots
+    //--------
+
+    const dotsContainer = document.querySelector('.nsp-dots-right, .nsp-dots-left');
+    let timeoutIndex;
+    const hideDots = () => {
+        if (conf.hidingOutDots) {
+            dotsContainer.classList.add('nsp-hidden');
+            clearTimeout(timeoutIndex);
+        }
+
+    }
+
+    const showDots = () => {
+        if (conf.hidingOutDots) {
+            dotsContainer.classList.remove('nsp-hidden');
+            clearTimeout(timeoutIndex);
+            timeoutIndex = setTimeout(hideDots, conf.dotsHideAfter);
+        }
+
+    }
+
+    window.addEventListener('mousemove', (e) => {
+        if (((dotsContainer.classList.contains('nsp-dots-right')) && (window.innerWidth - e.clientX <= (window.innerWidth / 100) * 10))
+            ||
+            ((dotsContainer.classList.contains('nsp-dots-left')) && (e.clientX <= (window.innerWidth / 100) * 10))
+        ) {
+            showDots();
+        }
+    });
+
+    window.addEventListener('touchstart', showDots);
+
     // ---------
     // Animation part
     // ---------
     const addAnimationClassToCurrentSection = () => {
+        showDots();
         if (conf.animationEnabled) {
             sectionsNode.forEach(section => {
                 section.classList.remove('nsp-animation');
@@ -345,6 +383,11 @@ else {
         }
     }
     addAnimationClassToCurrentSection();
+
+
+
+
+
 }
 
 
@@ -358,7 +401,7 @@ else {
 
 
 /*
-    Problems:
+    Issues:
     Edge:
         1. Nie wyświetlają się tytuły
         2. behavior: smooth nie działa

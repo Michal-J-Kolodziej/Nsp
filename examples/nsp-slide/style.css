@@ -15,7 +15,6 @@ div.nsp-container-slide p {
 /* animation example using transition */
 div.nsp-container-slide p.header {
     transition: 1s;
-    transition-delay: 0.5s; 
     color: black;
 }
 
