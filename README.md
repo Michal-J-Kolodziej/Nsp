@@ -5,7 +5,7 @@ Nsp is a small library that helps you build unusual webpages. Get rid of boring 
 ## How to use nsp
 
 ### 0. Download and add files to your project
-Download files from this repo and add the nsp catalog to your project. Then add nsp-style.css at the end of the 'head' tag and also nsp-script.js at the end of the 'body' tag. Your code should look something like that:
+Download files from this repo and add the nsp catalog to your project. Then add 'nsp-style.css' file at the end of the 'head' tag and also 'nsp-script.js' file at the end of the 'body' tag. Your code should look something like that:
 
 ```html
 <head>
