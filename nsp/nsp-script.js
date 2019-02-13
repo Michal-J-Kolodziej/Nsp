@@ -397,8 +397,6 @@ else {
 // TODO:
 // Stworzyć animacje na podstawie keyframes i nsp-animation
 // Update readme (animacje)
-// chowanie się kropek (np. pc - pojawiają się gdy user najedzie myszką na prawą część strony i przy każdej interakcji z kropakami (scroll itd) mobile - pojawiają się gdy user dotknie ekranu lub scrolluje [w sumie to też dotkniecie])
-
 
 /*
     Issues:
