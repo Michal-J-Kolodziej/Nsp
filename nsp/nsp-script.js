@@ -371,7 +371,7 @@ else {
                             clearInterval(intervalIndex);
                         }
 
-                    } else if (sections[currentSection - 1].section.getBoundingClientRect().y + sections[currentSection - 1].section.offsetHeight === 0) {
+                    } else if (sections[currentSection - 1].section.getBoundingClientRect().y + sections[currentSection - 1].section.offsetHeight <= 0) {
                         if (lastSection > currentSection) {
                             if (sections[currentSection].section.getBoundingClientRect().y === 0) {
                                 clearClassLists();
