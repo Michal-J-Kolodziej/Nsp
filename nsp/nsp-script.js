@@ -348,13 +348,16 @@ else {
     const addAnimationClassToCurrentSection = () => {
         showDots();
         if (conf.animationEnabled) {
-            sectionsNode.forEach(section => {
-                section.classList.remove('nsp-animation');
-            });
+            const clearClassLists = () => {
+                sectionsNode.forEach(section => {
+                    section.classList.remove('nsp-animation');
+                });
+            }
             const intervalIndex = setInterval(() => {
                 // Detecting section to animate when using nsp-slide
                 if (sections[0].section.classList.contains('nsp-container-slide')) {
                     if (sections[currentSection].section.getBoundingClientRect().y === 0) {
+                        clearClassLists();
                         sections[currentSection].section.classList.add('nsp-animation');
                         clearInterval(intervalIndex);
                     }
@@ -363,6 +366,7 @@ else {
                 if (sections[0].section.classList.contains('nsp-container-stacked')) {
                     if (currentSection === 0) {
                         if (sections[currentSection].section.getBoundingClientRect().y === 0) {
+                            clearClassLists();
                             sections[currentSection].section.classList.add('nsp-animation');
                             clearInterval(intervalIndex);
                         }
@@ -370,10 +374,12 @@ else {
                     } else if (sections[currentSection - 1].section.getBoundingClientRect().y + sections[currentSection - 1].section.offsetHeight === 0) {
                         if (lastSection > currentSection) {
                             if (sections[currentSection].section.getBoundingClientRect().y === 0) {
+                                clearClassLists();
                                 sections[currentSection].section.classList.add('nsp-animation');
                                 clearInterval(intervalIndex);
                             }
                         } else {
+                            clearClassLists();
                             sections[currentSection].section.classList.add('nsp-animation');
                             clearInterval(intervalIndex);
                         }
