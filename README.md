@@ -128,6 +128,19 @@ div.nsp-container-slide.nsp-animation p.header {
 
 **Note that 'nsp-animation' class is added ___after___ sections change animation ends.**
 
+
+### 5. Nsp links
+If you want to turn an element into a link to a specified section (for example you want to do a navbar), you can add to this element 'data-nsp-link="{number of section}"' property.
+
+**Sections's numbers starts from 1.**
+
+Example:
+```html
+<section class="nsp-container-stacked">
+        <p data-nsp-link="3">1</p> <!-- After clicking on this 'p' element your page will 'scroll' to third section -->
+</section>
+```
+
 ## Important things to know
 
 #### 1. Configure
