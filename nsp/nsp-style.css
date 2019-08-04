@@ -21,7 +21,11 @@ body{
 }
 
 .nsp-container-stacked.nsp-hidden {
-    top: -105vh;
+    transform: translateY(-120%);
+}
+
+.nsp-container-stacked.nsp-horizontal.nsp-hidden {
+    transform: translateX(-120%);
 }
 
 /* ------------------------------------- */
