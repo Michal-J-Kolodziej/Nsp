@@ -36,6 +36,22 @@ To achieve this effect you have to do a few simple things:
     <script src="nsp/nsp-script.js"></script>
 </body>
 ```
+
+***
+If you want you can change the hiding direction of your sections. Add 'nsp-horizontal' class to 'section' tags. Now your sections will hide to the left side of the screen.
+
+```html
+<body>
+    <section class="nsp-container-stacked nsp-horizontal"></section>
+    <section class="nsp-container-stacked nsp-horizontal"></section>
+    <section class="nsp-container-stacked nsp-horizontal"></section>
+    <section class="nsp-container-stacked nsp-horizontal"></section>
+
+    <script src="nsp/nsp-script.js"></script>
+</body>
+```
+***
+
 ##### At this point you are ready to go! Your page should be working flawless. But you can add navigation that I call 'dots'. You can learn more about them [below](#3-dots-navigation).
 
 ### 2. Slide sections
